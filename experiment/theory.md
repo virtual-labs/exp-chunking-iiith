@@ -1,4 +1,3 @@
-```
 #### Chunking of text invloves
                             dividing a text into
                             syntactically correlated words.
@@ -126,5 +125,3 @@ Each chunk has an open boundary and close boundary that delimit the word groups 
 |Satiate|VB |I-VP|
 |His|PRP$|B-NP|
 |Hunger|NN |I-NP|
-
-```
