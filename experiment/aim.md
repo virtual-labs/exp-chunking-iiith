@@ -7,6 +7,3 @@ Each chunk has an open boundary and close boundary that delimit the word groups 
 
 <img src="images/a.jpg">
 
-#### Objective
-
-The objective of this experiment is to understand the concept of chunking and get familiar with the basic chunk tagset.
