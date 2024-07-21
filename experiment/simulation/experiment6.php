@@ -27,7 +27,7 @@ $('#sen_opt').load('experiment6-0.php?ind='+lno);
 
 <div id="mainContainer" align="center">
 <?php 
-echo "<form action=\"javascript:selectLang()\" target=\"_parent\" method=\"post\">";
+echo "<form action=\"javascript:selectLang()\" target=\"_self\" method=\"post\">";
 echo "<select name=\"lang_opt\" id=\"lang_opt\" autocomplete=\"off\" onchange=\"selectLang(this.value);\">";
           echo "<option value=\"0\" select=\"selected\">---Select Language---</option>";
           echo "<option value=\"1\">English</option>";
