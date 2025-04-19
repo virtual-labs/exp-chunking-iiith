@@ -352,8 +352,8 @@ a.active {
 	}
 	.col-md-2-5-1-l
 	{
-			background: url("../images/dotted-devider-h-o.png") no-repeat;
-	background-position: left bottom;
+		/*background: url("../images/dotted-devider-h-o.png") no-repeat;*/
+		background-position: left bottom;
 	}
 }
 
@@ -390,7 +390,7 @@ a.active {
 
 .col-md-2-5-1-withbg
 {
-	background: url("../images/dotted-devider-h-o.png") no-repeat;
+	/*background: url("../images/dotted-devider-h-o.png") no-repeat;*/
 	background-position: left bottom;
 	width: 100%;
 	  min-height: 228px;
@@ -649,7 +649,7 @@ a:focus
 
 .lab-list-col-10
 {
-	background: url("../images/devider-blue-v-o.png") repeat-y;
+	/*background: url("../../images/devider-blue-v-o.png") repeat-y;*/
 	background-position: left top;
 	margin-bottom: 25px;
 }
