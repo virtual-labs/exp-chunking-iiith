@@ -1,3 +1,17 @@
+// Instructions panel toggle function
+function toggleInstructions() {
+  const panel = document.querySelector(".instructions-panel");
+  const content = document.getElementById("instructions-content");
+
+  if (panel.classList.contains("collapsed")) {
+    panel.classList.remove("collapsed");
+    content.classList.remove("collapsed");
+  } else {
+    panel.classList.add("collapsed");
+    content.classList.add("collapsed");
+  }
+}
+
 function selectLang() {
   const lang = document.getElementById("lang_opt").value;
 
@@ -5,6 +19,9 @@ function selectLang() {
     alert("Please select a language.");
     return;
   }
+
+  // Show the sentence selection step
+  document.getElementById("step-sentence").style.display = "block";
 
   // Call loadSentences to populate the sentence dropdown
   loadSentences(lang);
@@ -86,9 +103,9 @@ const sentenceData = {
           "राम/NN/B-NP सीता/NP/B-NP के/PSP/I-NP लिए/PSP/I-NP फूलों/NP/B-NP की/PSP/I-NP माला/NP/B-NP बनाता/VM/B-VGF है/VAUX/I-VGF",
       },
       {
-        question: "सभी बच्चे विद्यालय में पढ़ते है|",
+        question: "सभी बच्चे विद्यालय में पढ़ते है|",
         answer:
-          "सभी/QF/B-NP बच्चे/NN/I-NP विद्यालय/NN/B-NP में/PSP/I-NP पढ़ते/VM/B-VGF है/VAUX/I-VGF",
+          "सभी/QF/B-NP बच्चे/NN/I-NP विद्यालय/NN/B-NP में/PSP/I-NP पढ़ते/VM/B-VGF है/VAUX/I-VGF",
       },
       {
         question: "मैंने उनसे एक सहज प्रश्न पूछा था।",
@@ -117,9 +134,9 @@ const sentenceData = {
           "ट्रेन/NN/B-NP में/PSP/I-NP होने/VM/B-VGNN वाले/PSP/I-VGNN हर/QF/B-NP अपराध/NN/I-NP में/PSP/I-NP इस/DEM/B-NP गाँव/NN/I-NP का/PSP/I-NP कोई/PRP/B-NP शामिल/NN/I-NP मिल/VM/B-VP जाएगा/VAUX/I-VP",
       },
       {
-        question: "तुम्हारे सपने है बड़े से।",
+        question: "तुम्हारे सपने है बड़े से।",
         answer:
-          "तुम्हारे/PRP/B-NP सपने/NN/B-NP है/VM/B-VGF बड़े/JJ/B-JJP से/RP/I-JJP",
+          "तुम्हारे/PRP/B-NP सपने/NN/B-NP है/VM/B-VGF बड़े/JJ/B-JJP से/RP/I-JJP",
       },
     ],
     answerTokens: [
@@ -157,9 +174,6 @@ function loadSentences(lang) {
     option.textContent = sentence.question; // Display the question part
     sentenceDropdown.appendChild(option);
   });
-
-  // Show the sentence dropdown
-  document.getElementById("sentenceForm").style.display = "block";
 }
 
 // Function to populate the table dynamically based on the selected sentence
@@ -180,8 +194,8 @@ function populateTable(lang, sentenceIndex) {
       <th>Lexicon</th>
       <th>POS</th>
       <th>Chunk</th>
-      <th id="cor_head"></th>
-      <th id="ans_head"></th>
+      <th id="cor_head">Result</th>
+      <th id="ans_head">Answer</th>
     `;
   let tableRows = "";
 
@@ -208,13 +222,25 @@ function populateTable(lang, sentenceIndex) {
 
   const tableHTML = `
       ${sentenceInfoInput}
-      <table cellspacing="-2" cellpadding="4" border="1" style="text-align:center;">
-        ${tableHeader}
-        ${tableRows}
+      <table cellspacing="-2" cellpadding="4" border="1">
+        <thead>
+          <tr>
+            ${tableHeader}
+          </tr>
+        </thead>
+        <tbody>
+          ${tableRows}
+        </tbody>
       </table>
     `;
 
   displayDiv.innerHTML = tableHTML;
+
+  // Show the submit step
+  document.getElementById("step-submit").style.display = "block";
+
+  // Show the reset step
+  document.getElementById("step-reset").style.display = "block";
 }
 
 function selectSentence() {
@@ -248,17 +274,22 @@ function checkAnswer() {
     if (userAnswer !== correctAnswer) {
       flag = 1;
       document.getElementById(`correction${index}`).innerHTML =
-        '<img src="wrong.png" style="height:25px; width:25px" alt="Wrong" />';
+        '<img src="images/wrong.png" style="height:25px; width:25px" alt="Wrong" />';
     } else {
       document.getElementById(`correction${index}`).innerHTML =
-        '<img src="right.png" style="height:25px; width:25px" alt="Right" />';
+        '<img src="images/right.png" style="height:25px; width:25px" alt="Right" />';
     }
   });
 
   // If there are incorrect answers, show the "Get Answer" button
   if (flag === 1) {
+    document.getElementById("answer-button-container").innerHTML =
+      '<button class="answer-button" onclick="correctTable()">Get Answer</button>';
+    document.getElementById("see_soln").innerHTML = "";
+  } else {
+    document.getElementById("answer-button-container").innerHTML = "";
     document.getElementById("see_soln").innerHTML =
-      '<br/> <form action="javascript:correctTable()"> <input type="submit" value="Get Answer" /> </form><br/>';
+      '<div style="color: var(--color-success); font-weight: bold; font-size: 1.2em;">Perfect! All answers are correct!</div>';
   }
 }
 
@@ -276,9 +307,11 @@ function correctTable() {
     document.getElementById(`correct${index}`).innerHTML = correctAnswer;
   });
 
-  // Update the "see_soln" div to show the "Hide Answer" button
+  // Update the button to show "Hide Answer" and show a message
+  document.getElementById("answer-button-container").innerHTML =
+    '<button class="answer-button" onclick="clearTable()">Hide Answer</button>';
   document.getElementById("see_soln").innerHTML =
-    '<br/> <form action="javascript:clearTable()"> <input type="submit" value="Hide Answer" /> </form>';
+    '<div style="color: var(--color-primary); font-weight: bold;">Answers are now visible in the rightmost column.</div>';
 }
 
 // Function to clear the correct answers from the table
@@ -294,12 +327,34 @@ function clearTable() {
     document.getElementById(`correct${index}`).innerHTML = "";
   });
 
-  // Update the "see_soln" div to show the "Get Answer" button
-  document.getElementById("see_soln").innerHTML =
-    '<br/> <form action="javascript:correctTable()"> <input type="submit" value="Get Answer" /> </form><br/>';
+  // Update the button back to "Get Answer" and clear the message
+  document.getElementById("answer-button-container").innerHTML =
+    '<button class="answer-button" onclick="correctTable()">Get Answer</button>';
+  document.getElementById("see_soln").innerHTML = "";
+}
+
+// Function to reset the simulation
+function resetSimulation() {
+  // Reset language selection
+  document.getElementById("lang_opt").value = "0";
+
+  // Hide steps
+  document.getElementById("step-sentence").style.display = "none";
+  document.getElementById("step-submit").style.display = "none";
+  document.getElementById("step-reset").style.display = "none";
+
+  // Clear content
+  document.getElementById("sentence_opt").innerHTML =
+    '<option value="-1" selected>---Select a sentence---</option>';
+  document.getElementById("display").innerHTML = "";
+  document.getElementById("see_soln").innerHTML = "";
+  document.getElementById("answer-button-container").innerHTML = "";
 }
 
 // Expose the functions to the global scope
+window.selectLang = selectLang;
+window.selectSentence = selectSentence;
 window.checkAnswer = checkAnswer;
 window.correctTable = correctTable;
 window.clearTable = clearTable;
+window.resetSimulation = resetSimulation;

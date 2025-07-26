@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "After completing the chunking experiment, you should be able to identify that in the sentence 'She bought some beautiful flowers', the phrase 'some beautiful flowers' represents:",
+      "answers": {
+        "a": "Three separate chunks: [some], [beautiful], [flowers]",
+        "b": "A single noun phrase (NP) chunk",
+        "c": "A verb phrase (VP) chunk",
+        "d": "An adverbial phrase (ADVP) chunk"
+      },
+      "explanations": {
+        "a": "Incorrect. These words are syntactically related and should be grouped as a single noun phrase.",
+        "b": "Correct! 'Some beautiful flowers' forms a complete noun phrase with determiner + adjective + noun.",
+        "c": "Incorrect. This phrase contains no verbs and cannot be a verb phrase.",
+        "d": "Incorrect. This phrase contains a noun as the head and is not adverbial in function."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Based on the simulation experience, what would be the correct IOB tagging for 'The cat sat on the mat'?",
+      "answers": {
+        "a": "The/B-NP cat/I-NP sat/B-VP on/B-PP the/B-NP mat/I-NP",
+        "b": "The/B-NP cat/I-NP sat/O on/O the/B-NP mat/I-NP",
+        "c": "The/O cat/O sat/O on/O the/O mat/O",
+        "d": "The/B-NP cat/B-NP sat/B-VP on/B-PP the/I-PP mat/I-PP"
+      },
+      "explanations": {
+        "a": "Correct! This shows proper chunking: [The cat] as NP, [sat] as VP, [on] as PP, [the mat] as NP.",
+        "b": "Incorrect. 'sat' should be B-VP (verb phrase), and 'on' should be B-PP (prepositional phrase).",
+        "c": "Incorrect. This would mean no chunks are identified, which misses important phrase structures.",
+        "d": "Incorrect. 'cat' should be I-NP (continuing the noun phrase), and 'the mat' should be a separate NP chunk."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Having practiced with both English and Hindi in the simulation, you can identify that the Hindi phrase 'बड़े घर में' (bade ghar mein - 'in the big house') should be chunked as:",
+      "answers": {
+        "a": "Three separate chunks for each word",
+        "b": "A single noun phrase (NP) including the postposition",
+        "c": "Two chunks: [बड़े घर] and [में] separately",
+        "d": "A prepositional phrase (PP) like in English"
+      },
+      "explanations": {
+        "a": "Incorrect. These words are syntactically related and form a cohesive phrase unit.",
+        "b": "Correct! In Hindi, postpositions like 'में' (in) are included within the noun phrase chunk.",
+        "c": "Incorrect. Hindi postpositions are typically included as part of the noun phrase they modify.",
+        "d": "Incorrect. Hindi uses postpositions, not prepositions, and they're handled differently in chunking."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "After using the simulation's feedback system, you understand that chunking accuracy depends primarily on:",
+      "answers": {
+        "a": "The length of the sentence being analyzed",
+        "b": "Correctly identifying syntactic relationships and phrase boundaries",
+        "c": "The number of adjectives in the sentence",
+        "d": "Whether the sentence is in English or Hindi"
+      },
+      "explanations": {
+        "a": "Incorrect. Sentence length affects complexity but not the fundamental principles of accurate chunking.",
+        "b": "Correct! Understanding how words relate syntactically and where phrase boundaries occur is key to accurate chunking.",
+        "c": "Incorrect. While adjectives affect chunk structure, they're not the primary determinant of chunking accuracy.",
+        "d": "Incorrect. Both languages can be chunked accurately using appropriate language-specific rules."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "The simulation demonstrated that when you encounter complex verb forms like 'will have been completed', this should be tagged as:",
+      "answers": {
+        "a": "Four separate chunks, one for each word",
+        "b": "Two chunks: [will have] and [been completed]",
+        "c": "A single verb phrase (VP) chunk",
+        "d": "A noun phrase because it's complex"
+      },
+      "explanations": {
+        "a": "Incorrect. These auxiliary verbs work together to form a single grammatical unit.",
+        "b": "Incorrect. All these verbs are part of the same verb phrase expressing tense and aspect.",
+        "c": "Correct! Complex verb forms with multiple auxiliaries still constitute a single verb phrase chunk.",
+        "d": "Incorrect. Complexity doesn't change the grammatical category; these are still verbs forming a VP."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Through the experiment's practice sessions, you learned that coordination in phrases like 'big and beautiful house' should be chunked as:",
+      "answers": {
+        "a": "[big] [and] [beautiful house] - three separate chunks",
+        "b": "[big and beautiful] [house] - two chunks",
+        "c": "[big and beautiful house] - single noun phrase",
+        "d": "[big] [and beautiful] [house] - three chunks with different types"
+      },
+      "explanations": {
+        "a": "Incorrect. The coordinated adjectives and noun form a cohesive noun phrase.",
+        "b": "Incorrect. The entire phrase including the coordinated adjectives and noun should be one chunk.",
+        "c": "Correct! Coordinated adjectives modifying a noun are typically kept within the same noun phrase chunk.",
+        "d": "Incorrect. This would break up what is fundamentally a single noun phrase with coordinated modifiers."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "The experiment showed that chunking serves as a foundation for higher-level NLP tasks. Which of these would LEAST benefit from chunking information?",
+      "answers": {
+        "a": "Named entity recognition",
+        "b": "Information extraction",
+        "c": "Character frequency counting",
+        "d": "Machine translation"
+      },
+      "explanations": {
+        "a": "Incorrect. Named entity recognition heavily relies on noun phrase boundaries identified through chunking.",
+        "b": "Incorrect. Information extraction uses chunk boundaries to identify relevant entities and relationships.",
+        "c": "Correct! Character frequency counting is a simple statistical task that doesn't require syntactic phrase information.",
+        "d": "Incorrect. Machine translation benefits from understanding phrase structures for better translation quality."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Having completed multiple practice sentences, you can identify that the main advantage of the IOB tagging scheme over other representations is:",
+      "answers": {
+        "a": "It uses fewer tags than other schemes",
+        "b": "It clearly marks chunk boundaries and handles adjacent chunks of the same type",
+        "c": "It only works with English sentences",
+        "d": "It doesn't require any linguistic knowledge"
+      },
+      "explanations": {
+        "a": "Incorrect. The number of tags is not the primary advantage; clarity and disambiguation are more important.",
+        "b": "Correct! IOB scheme clearly distinguishes chunk boundaries and prevents ambiguity when chunks of the same type appear adjacent to each other.",
+        "c": "Incorrect. IOB tagging works effectively with multiple languages, as demonstrated in the experiment.",
+        "d": "Incorrect. Effective use of IOB tagging requires understanding of syntactic relationships and phrase structures."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "From your experience with the chunking simulation, the most challenging aspect of manual chunking is typically:",
+      "answers": {
+        "a": "Remembering the tag names (B-, I-, O)",
+        "b": "Deciding on ambiguous attachment cases and complex phrase boundaries",
+        "c": "Working with short sentences",
+        "d": "Understanding what nouns and verbs are"
+      },
+      "explanations": {
+        "a": "Incorrect. The tag scheme is straightforward once learned; the challenge lies in applying it correctly.",
+        "b": "Correct! Ambiguous cases like prepositional phrase attachment and complex nested structures require deep syntactic understanding.",
+        "c": "Incorrect. Shorter sentences are typically easier to chunk due to reduced complexity.",
+        "d": "Incorrect. Basic part-of-speech knowledge is prerequisite; the challenge is in phrase-level grouping decisions."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    }
+  ]
+}
