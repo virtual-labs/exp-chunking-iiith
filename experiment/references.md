@@ -1,103 +1,96 @@
-### Books
+### Textbooks
 
-1. **"Speech and Language Processing" (3rd Edition)**
+**1. Speech and Language Processing - An Introduction to Natural Language Processing, Computational Linguistics and Speech Recognition**<br/>
+BY: Daniel Jurafsky and James H. Martin - Chapter 12<br/>
+_Comprehensive coverage of syntactic parsing and phrase chunking techniques._
 
-   - _Authors_: Dan Jurafsky and James H. Martin
-   - _Relevance_: Chapter 13 covers syntactic parsing and chunking
-   - _Link_: [Web Edition](https://web.stanford.edu/~jurafsky/slp3/)
+**2. Foundations of Statistical Natural Language Processing**<br/>
+BY: Christopher D. Manning and Hinrich Schütze - Chapter 11<br/>
+_Statistical approaches to shallow parsing and chunk identification._
 
-2. **"Foundations of Statistical Natural Language Processing"**
+**3. Natural Language Processing with Python**<br/>
+BY: Steven Bird, Ewan Klein and Edward Loper - Chapter 7<br/>
+_Practical implementation of chunking using NLTK with regex patterns._
 
-   - _Authors_: Christopher D. Manning and Hinrich Schütze
-   - _Publisher_: MIT Press, 1999
-   - _Relevance_: Comprehensive coverage of statistical approaches to parsing
+**4. Introduction to Information Retrieval**<br/>
+BY: Christopher Manning, Prabhakar Raghavan, and Hinrich Schütze<br/>
+_Text processing fundamentals including phrase extraction and chunking._
 
-3. **"Natural Language Processing with Python"**
-   - _Authors_: Steven Bird, Ewan Klein, and Edward Loper
-   - _Publisher_: O'Reilly Media, 2009
-   - _Relevance_: Practical implementation of chunking using NLTK
-   - _Link_: [Free Online Version](https://www.nltk.org/book/)
+### Video Lectures and Online Courses
 
-### Research Papers
+**NPTEL Courses:**
 
-4. **"Text Chunking using Regularized Winnow"**
+- [Natural Language Processing](https://nptel.ac.in/courses/106/105/106105184/) - IIT Bombay
+- [Computational Linguistics](https://nptel.ac.in/courses/109/106/109106084/) - IIT Kharagpur
 
-   - _Authors_: Tong Zhang, Fred Damerau, and David Johnson
-   - _Conference_: ACL 2001
-   - _DOI_: [10.3115/1073012.1073017](https://doi.org/10.3115/1073012.1073017)
+**Stanford University:**
 
-5. **"Introduction to the CoNLL-2000 Shared Task: Chunking"**
+- [CS224N: Natural Language Processing](http://web.stanford.edu/class/cs224n/) - Stanford
+- [CS224U: Natural Language Understanding](https://web.stanford.edu/class/cs224u/) - Stanford
 
-   - _Authors_: Erik F. Tjong Kim Sang and Sabine Buchholz
-   - _Conference_: CoNLL 2000
-   - _Link_: [ACL Anthology](https://aclanthology.org/W00-0726/)
+**YouTube EDU Channels:**
 
-6. **"Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data"**
-   - _Authors_: John Lafferty, Andrew McCallum, and Fernando Pereira
-   - _Conference_: ICML 2001
-   - _Relevance_: Foundational work on CRFs for sequence labeling tasks
+- [Natural Language Processing Lectures](https://www.youtube.com/playlist?list=PLQiyVNMpDLKnZYBTUOlSI9mi9wAErFtFm) - Chunking episodes
+- [NLTK Tutorials](https://www.youtube.com/playlist?list=PLLssT5z_DsK8BdawOVCCaTCO99Ya58ryR) - Practical chunking examples
 
----
+### Research Papers and Articles
 
-## Online Resources and Tutorials
+**1. Noun Phrase Chunking using Regular Expression Patterns**<br/>
+BY: Steven Abney<br/>
+_Computational Linguistics, Vol. 17, No. 2, 1991_
 
-### Educational Websites
+**2. Text Chunking using Transformation-Based Learning**<br/>
+BY: Lance Ramshaw and Mitchell Marcus<br/>
+_ACL 1995_
 
-7. **Stanford CS224N: Natural Language Processing with Deep Learning**
+**3. Memory-Based Shallow Parsing**<br/>
+BY: Walter Daelemans, Sabine Buchholz, Jorn Veenstra<br/>
+_CoNLL 1999_
 
-   - _Platform_: Stanford University
-   - _Link_: [Course Website](http://web.stanford.edu/class/cs224n/)
-   - _Content_: Lectures on syntactic parsing and chunking
+### Online Resources and Tools
 
-8. **NLTK Book: Analyzing Sentence Structure**
+**Academic Resources:**
 
-   - _Platform_: Natural Language Toolkit
-   - _Link_: [Chapter 7](https://www.nltk.org/book/ch07.html)
-   - _Content_: Hands-on chunking exercises and examples
+- [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) - Standard parsing and chunking dataset
+- [CoNLL Shared Tasks](https://www.clips.uantwerpen.be/conll2000/chunking/) - Chunking evaluation datasets
+- [Universal Dependencies](https://universaldependencies.org/) - Multi-language syntactic annotation
 
-9. **spaCy Documentation: Linguistic Features**
-   - _Platform_: spaCy Industrial NLP
-   - _Link_: [spaCy Docs](https://spacy.io/usage/linguistic-features)
-   - _Content_: Modern approach to chunking and dependency parsing
+**Interactive Tools:**
 
-### Video Lectures
+- [NLTK Chunking Demo](https://www.nltk.org/book/ch07.html) - Interactive chunking patterns
+- [spaCy Phrase Matcher](https://spacy.io/usage/rule-based-matching) - Modern chunking techniques
+- [Stanford Parser Demo](https://parser.stanford.edu/) - Online parsing and chunking
 
-10. **"Parsing and Syntax" - Dan Jurafsky (Stanford)**
+**Practice Resources:**
 
-    - _Platform_: YouTube/Coursera
-    - _Duration_: ~45 minutes
-    - _Content_: Introduction to syntactic analysis and chunking
+- [NLTK Book Chapter 7](https://www.nltk.org/book/ch07.html) - Hands-on chunking exercises
+- [Python NLTK Tutorials](https://pythonprogramming.net/chunking-nltk-tutorial/) - Step-by-step chunking guide
+- [Regular Expression Tester](https://regex101.com/) - Test chunking patterns
 
-11. **"Natural Language Processing" - Christopher Manning (Stanford)**
-    - _Platform_: YouTube
-    - _Series_: CS224N Lecture Series
-    - _Content_: Comprehensive NLP course including parsing topics
+### Additional Reading
 
----
+**For Advanced Study:**
 
-## Language-Specific Resources
+- "Syntactic Pattern Recognition for Information Extraction" by Mary Elaine Califf
+- "Shallow Parsing with Conditional Random Fields" by Fei Sha and Fernando Pereira
+- "Introduction to the CoNLL-2000 Shared Task: Chunking" by Erik Tjong Kim Sang
 
-### English Chunking
+**For Indian Languages:**
 
-12. **Penn Treebank II Tagset**
+- "Hindi Chunking using CRFs" by various authors from LTRC, IIIT Hyderabad
+- "Statistical Approach to Hindi Shallow Parsing" by Bharati et al.
+- "Indian Language Text Processing" - Multiple authors, CDAC publications
 
-    - _Source_: University of Pennsylvania
-    - _Link_: [Treebank Documentation](https://catalog.ldc.upenn.edu/docs/LDC95T7/cl93.html)
-    - _Content_: Standard tagset for English chunking
+### Practice Resources
 
-13. **CoNLL-2000 Shared Task Data**
-    - _Source_: Conference on Natural Language Learning
-    - _Link_: [Dataset](https://www.clips.uantwerpen.be/conll2000/chunking/)
-    - _Content_: Benchmark dataset for English chunking
+**Corpora and Datasets:**
 
-### Indian Languages
+- [CoNLL-2000 Chunking Data](https://www.clips.uantwerpen.be/conll2000/chunking/) - Standard evaluation corpus
+- [Brown Corpus](https://www.nltk.org/nltk_data/) - Classic English text corpus with chunking annotations
+- [Hindi Treebank](http://ltrc.iiit.ac.in/analyzer/hindi/) - Hindi syntactic analysis resources
 
-14. **AnnCorra: Guidelines For POS And Chunk Annotation For Indian Languages**
+**Tools and Libraries:**
 
-    - _Authors_: Akshar Bharati, Dipti Misra Sharma, Lakshmi Bai, Rajeev Sangal
-    - _Institution_: International Institute of Information Technology, Hyderabad
-    - _Content_: Comprehensive annotation guidelines for Hindi and other Indian languages
-
-15. **Hindi Dependency Treebank**
-    - _Source_: LTRC, IIIT Hyderabad
-    - _Content_: Large-scale annotated corpus for Hindi syntactic analysis
+- [NLTK Chunking](https://www.nltk.org/api/nltk.chunk.html) - Python chunking library
+- [spaCy Rule-based Matching](https://spacy.io/usage/rule-based-matching) - Modern pattern matching
+- [OpenNLP Chunker](https://opennlp.apache.org/docs/1.9.3/manual/opennlp.html#tools.chunker) - Java-based chunking tools
