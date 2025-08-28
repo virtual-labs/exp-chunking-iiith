@@ -1,19 +1,41 @@
-**Q**. Following are some erroneous chunks. Identify the errors, mark them into three categories: invalid chunk boundaries, not a minimal phrase and incorrect chunk label.
+**1.** Given the sentence "The small red car quickly drove through the busy street", perform chunking analysis:
 
-Do the necessary corrections. Note: The categories may be overlapping.
+A. First apply POS tagging to each word
+B. Identify potential noun phrases using the pattern `{<DT>?<JJ>*<NN>}`
+C. Identify verb phrases and prepositional phrases
+D. Write the final chunked representation using bracket notation
 
-1. [NP She] [VP is] [AJDP a beautiful] [NP girl]
+**2.** Create regular expression patterns for the following chunk types:
 
-2. [NP He] [VP could not] [ADJP be tolerated]
+A. Noun phrases that start with possessive pronouns (my, his, her, their)
+B. Verb phrases containing auxiliary verbs followed by main verbs  
+C. Prepositional phrases starting with common prepositions (in, on, at, by)
 
-3. [NP They] [VP invited] [NP him to] [NP the dinner party]
+Provide example sentences that match each pattern.
 
-4. [NP He] [VP was shot] [NP by the swats]
+**3.** Convert the following chunked sentence into IOB notation:
 
-5. [NP He] [VP longed] [PP for] [NP a hot cup of coffee]
+**Chunked sentence:** [NP The quick brown fox] [VP jumps] [PP over] [NP the lazy dog]
 
-6. [VGNF सुनने में] [NP सब कुछ] [VGF अच्छा लगता है]
+Create a table with columns: Word | POS Tag | Chunk Tag
 
-7. [NP सीता के] [JJP काले] [JJP घने] [JJP लम्बे] [NP बाल] [VGF है]
+Assume standard POS tags: DT (determiner), JJ (adjective), NN (noun), VBZ (verb), IN (preposition).
 
-8. [NP मैं] [NP घास खाते हुए शेर को] [VGNF देखकर] [VGF दंग रह गयी]
+**4.** Analyze the ambiguity in the following sentences and explain different possible chunking interpretations:
+
+    Sentence 1: "I bought the book on machine learning"
+    Sentence 2: "The student with the laptop studies programming"
+
+For each sentence, provide two different chunking analyses and explain which interpretation is more likely and why.
+
+**5.** Design a chunking grammar using NLTK patterns for the following requirements:
+
+**Target patterns:**
+
+- Company names: "Apple Inc.", "Microsoft Corporation"
+- Time expressions: "last Monday", "next week", "3 PM"
+- Location phrases: "in New York", "at the university"
+
+A. Write regular expression patterns for each type
+B. Test your patterns on sample sentences
+C. Identify any limitations or edge cases in your patterns

@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the primary purpose of chunking in natural language processing?",
+      "answers": {
+        "a": "To count the number of words in a sentence",
+        "b": "To identify and group syntactically related words into phrases",
+        "c": "To translate sentences between different languages",
+        "d": "To correct grammatical errors in text"
+      },
+      "explanations": {
+        "a": "Incorrect. Word counting is a simple task that doesn't require chunking analysis.",
+        "b": "Correct! Chunking identifies syntactically related words and groups them into meaningful phrases like noun phrases and verb phrases.",
+        "c": "Incorrect. While chunking can help in translation, it's not the primary purpose of chunking itself.",
+        "d": "Incorrect. Grammar correction is a different NLP task, though chunking can provide useful information for it."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the IOB tagging scheme, what does the 'B-' prefix represent?",
+      "answers": {
+        "a": "The end of a chunk",
+        "b": "A word that belongs to multiple chunks",
+        "c": "The beginning of a new chunk",
+        "d": "A word that doesn't belong to any chunk"
+      },
+      "explanations": {
+        "a": "Incorrect. There is no specific tag for the end of chunks in IOB scheme; chunk boundaries are implicit.",
+        "b": "Incorrect. Words cannot belong to multiple chunks simultaneously in the IOB scheme.",
+        "c": "Correct! The 'B-' prefix indicates the beginning or start of a new chunk.",
+        "d": "Incorrect. Words that don't belong to any chunk are marked with 'O' (Outside)."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is NOT a common chunk type in English?",
+      "answers": {
+        "a": "Noun Phrase (NP)",
+        "b": "Verb Phrase (VP)",
+        "c": "Sentence Phrase (SP)",
+        "d": "Prepositional Phrase (PP)"
+      },
+      "explanations": {
+        "a": "Incorrect. Noun Phrase (NP) is one of the most common chunk types in English.",
+        "b": "Incorrect. Verb Phrase (VP) is a fundamental chunk type containing verbs and auxiliaries.",
+        "c": "Correct! 'Sentence Phrase (SP)' is not a recognized chunk type. Chunks represent sub-sentential phrases.",
+        "d": "Incorrect. Prepositional Phrase (PP) is a standard chunk type in English."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the sentence 'The big red car', how should this phrase be chunked?",
+      "answers": {
+        "a": "[The] [big] [red] [car] - each word as separate chunks",
+        "b": "[The big red car] - as a single noun phrase",
+        "c": "[The big] [red car] - as two separate chunks",
+        "d": "[The] [big red car] - determiner separate from the rest"
+      },
+      "explanations": {
+        "a": "Incorrect. These words are syntactically related and should be grouped together.",
+        "b": "Correct! 'The big red car' forms a single noun phrase (NP) with determiner + adjectives + noun.",
+        "c": "Incorrect. All these words modify and relate to the same noun and should be in one chunk.",
+        "d": "Incorrect. The determiner 'the' is part of the noun phrase it introduces."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the main difference between chunking and full syntactic parsing?",
+      "answers": {
+        "a": "Chunking is faster but provides less detailed structural information",
+        "b": "Chunking only works with English, while parsing works with all languages",
+        "c": "Chunking is more accurate than full parsing",
+        "d": "There is no difference between chunking and parsing"
+      },
+      "explanations": {
+        "a": "Correct! Chunking provides shallow parsing with basic phrase identification, while full parsing creates complete syntactic trees.",
+        "b": "Incorrect. Chunking works with multiple languages, including Hindi and other Indian languages.",
+        "c": "Incorrect. Parsing provides more detailed analysis, though chunking can be more robust for certain applications.",
+        "d": "Incorrect. Chunking and parsing are different levels of syntactic analysis."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In Hindi chunking, what is the key difference from English regarding prepositions/postpositions?",
+      "answers": {
+        "a": "Hindi doesn't use any positional markers",
+        "b": "Hindi postpositions are included within the noun phrase chunk",
+        "c": "Hindi prepositions work exactly like English prepositions",
+        "d": "Hindi uses only prepositions, never postpositions"
+      },
+      "explanations": {
+        "a": "Incorrect. Hindi uses postpositions extensively to mark grammatical relationships.",
+        "b": "Correct! In Hindi, postpositions like 'में' (in) are included as part of the noun phrase chunk.",
+        "c": "Incorrect. Hindi primarily uses postpositions, which behave differently from English prepositions in chunking.",
+        "d": "Incorrect. Hindi is a postpositional language, using postpositions rather than prepositions."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following best represents the IOB tagging for the phrase 'will be running'?",
+      "answers": {
+        "a": "will/B-VP be/I-VP running/I-VP",
+        "b": "will/B-VP be/B-VP running/B-VP",
+        "c": "will/O be/O running/O",
+        "d": "will/I-VP be/I-VP running/B-VP"
+      },
+      "explanations": {
+        "a": "Correct! This represents a single verb phrase chunk with 'will' beginning it and 'be' and 'running' continuing it.",
+        "b": "Incorrect. Using B-VP for each word would indicate three separate verb phrase chunks.",
+        "c": "Incorrect. These words form a coherent verb phrase and shouldn't be marked as outside chunks.",
+        "d": "Incorrect. A chunk cannot start with I-VP; it must begin with B-VP."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the primary challenge in automatic chunking systems?",
+      "answers": {
+        "a": "Limited vocabulary coverage",
+        "b": "Resolving attachment ambiguities and boundary decisions",
+        "c": "Converting text to speech",
+        "d": "Translating between languages"
+      },
+      "explanations": {
+        "a": "Incorrect. Vocabulary coverage is typically not the main limitation in chunking systems.",
+        "b": "Correct! Determining where chunks begin and end, and resolving ambiguous attachments (like prepositional phrase attachment) are major challenges.",
+        "c": "Incorrect. Text-to-speech is a different NLP task unrelated to chunking challenges.",
+        "d": "Incorrect. Translation is a separate task, though chunking can assist in translation systems."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In evaluating chunking performance, what does the F1-score measure?",
+      "answers": {
+        "a": "Only the precision of chunk boundary identification",
+        "b": "Only the recall of chunk boundary identification",
+        "c": "The harmonic mean of precision and recall",
+        "d": "The total number of correctly identified chunks"
+      },
+      "explanations": {
+        "a": "Incorrect. F1-score considers both precision and recall, not just precision alone.",
+        "b": "Incorrect. F1-score considers both precision and recall, not just recall alone.",
+        "c": "Correct! F1-score is the harmonic mean of precision and recall, providing a balanced measure of chunking performance.",
+        "d": "Incorrect. While related to accuracy, F1-score specifically measures the balance between precision and recall."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    }
+  ]
+}

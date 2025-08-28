@@ -1,127 +1,209 @@
-#### Chunking of text invloves
-                            dividing a text into
-                            syntactically correlated words.
+Chunking in Natural Language Processing is the process of identifying and extracting meaningful phrases from text by grouping related words together. It serves as an intermediate step between Part-of-Speech tagging and full syntactic parsing.
 
-Eg: He ate an apple to satiate his hunger.  [NP He ] [VP ate] [NP an apple] [VP to satiate] [NP his hunger]
+---
 
-Eg: दरवाज़ा खुल गया
-[NP दरवाज़ा] [VP खुल गया]
+#### 1. What is Chunking?
 
-#### Chunk Types
+Chunking involves dividing text into syntactically related groups of words called chunks. These chunks represent meaningful units like noun phrases, verb phrases, or prepositional phrases.
 
-The chunk types are based on the syntactic category part. Besides the head a chunk also contains modifiers (like determiners, adjectives, postpositions in NPs).
+#### Example: Chunking a Simple Sentence
 
-The basic types of chunks in English are:
+**Input:** "The quick brown fox jumps over the lazy dog"
 
-|   |Chunk type|Tag Name|
-|---|---|---|
-|1  |Noun|NP |
-|2  |Verb|VP |
-|3  |Adverb|ADVP|
-|4  |Adjectivial|ADJP|
-|5  |Prepositional|PP|
+**After POS Tagging:**
 
+```
+The/DT quick/JJ brown/JJ fox/NN jumps/VBZ over/IN the/DT lazy/JJ dog/NN
+```
 
-The basic Chunk Tag Set for Indian Languages
+**After Chunking:**
 
-|Sl. No|Chunk type|Tag Name|
-|---|---|---|
-|1  |Noun Chunk|NP |
-|2  |Finite Verb Chunk|VGF|
-|3  |Non-Finite Verb Chunk|VGNF|
-|4  |Adjectivial Chunk|JJP|
-|5  |Adverb Chunk|RBP|
+```
+[NP The/DT quick/JJ brown/JJ fox/NN] [VP jumps/VBZ] [PP over/IN] [NP the/DT lazy/JJ dog/NN]
+```
 
+---
 
-#### NP   Noun Chunks
+#### 2. Types of Chunks
 
-Noun Chunks will be given the tag NP and include non-recursive noun phrases and postposition for Indian languages and preposition for English. Determiners, adjectives and other modifiers will be part of the noun chunk.
+#### **Noun Phrases (NP)**
 
-Eg: 
+Groups of words functioning as a noun unit:
 
-(इस/DEM किताब/NN में/PSP)NP 
-'this' 'book'  'in'    
+- "The red car" → [NP The red car]
+- "My best friend" → [NP My best friend]
 
-((in/IN the/DT big/ADJ room/NN))NP
+#### **Verb Phrases (VP)**
 
-#### Verb Chunks
+Groups containing verbs and their modifiers:
 
+- "is running quickly" → [VP is running quickly]
+- "will have been completed" → [VP will have been completed]
 
-The verb chunks are marked as VP for English, however they would be of several types for Indian languages.  A verb group will include the main verb and its auxiliaries, if any.
+#### **Prepositional Phrases (PP)**
 
-For English:
+Phrases beginning with prepositions:
 
-I (will/MD be/VB loved/VBD)VP
+- "in the garden" → [PP in the garden]
+- "under the table" → [PP under the table]
 
-The types of verb chunks and their tags are described below.
+---
 
-1. VGF	Finite Verb Chunk
+#### 3. Chunking vs Full Parsing
 
-The auxiliaries in the verb group mark the finiteness of the
-verb at the chunk level. Thus, any verb group which is
-finite will be tagged as VGF. For example,
+#### **Full Parsing**
 
-Eg: मैंने घर पर (खाया/VM)VGF
-    'I erg''home' 'at''meal'  'ate'
+- Creates complete syntactic tree structure
+- Computationally expensive
+- Provides detailed grammatical relationships
 
-2. VGNF   Non-finite Verb Chunk
+#### **Chunking (Shallow Parsing)**
 
-A non-finite verb chunk will be tagged as VGNF. 
+- Identifies only major phrases
+- Faster and more robust
+- Sufficient for many NLP applications
 
-Eg: सेब  (खाता/VM  हुआ/VAUX)VGNF लड़का जा रहा है 
-  'apple' 'eating' 'PROG'  'boy' go' 'PROG' 'is'
+---
 
-3. VGNN	Gerunds
+#### 4. Chunking Approaches
 
-A verb chunk having a gerund will be annotated as VGNN.
+#### **Rule-Based Chunking**
 
-Eg: शराब (पीना/VM)VGNN सेहत के लिए हानिकारक है sharAba  
-    'liquor'  'drinking'      'heath'   'for' 'harmful'   'is'
+Uses hand-crafted patterns to identify chunks:
 
-#### JJP/ADJP   	Adjectival Chunk
+```
+NP Pattern: {<DT>?<JJ>*<NN>}
+```
 
+This pattern matches: Optional determiner + Any number of adjectives + Noun
 
-An adjectival chunk will be tagged as ADJP for English and JJP for Indian languages. This chunk will consist of all adjectival chunks including the predicative adjectives.
+#### **Regular Expression Patterns**
 
-Eg: 
+Common chunking patterns:
 
-वह लड़की है (सुन्दर/JJ)JJP 
+- `{<DT><.*>*<NN>}` - Determiner followed by words ending with noun
+- `{<JJ><NN>}` - Adjective-noun combination
+- `{<NN><IN><NN>}` - Noun-preposition-noun pattern
 
-The fruit is (ripe/JJ)ADJP
+#### **Machine Learning Approach**
 
-Note: Adjectives appearing before a noun will be grouped together within the noun chunk.
+- Train on annotated corpus (like CoNLL-2000)
+- Learn patterns automatically from data
+- More flexible than rule-based methods
 
-#### RBP/ADVP	    Adverb Chunk
+---
 
+#### 5. IOB Tagging for Chunking
 
-This chunk will include all pure adverbial phrases.
+Chunking uses IOB (Inside-Outside-Begin) notation:
 
-Eg:
+- **B-NP**: Beginning of noun phrase
+- **I-NP**: Inside noun phrase
+- **O**: Outside any chunk
 
-वह (धीरे-धीरे/RB)RBP चल रहा था 
-'he' 'slowly' 'walk' 'PROG' 'was'
+#### Example IOB Tagging:
 
-He walks (slowly/ADV)/ADVP
+```
+Word:    The    quick   brown   fox    jumps   over
+POS:     DT     JJ      JJ      NN     VBZ     IN
+Chunk:   B-NP   I-NP    I-NP    I-NP   O       O
+```
 
-#### PP Prepositional Chunk
+---
 
-This chunk type is present for only English and not for Indian languages. It consists of only the preposition and not the NP argument.
+#### 6. Chunking with NLTK
 
-Eg: 
+#### **Basic Pattern Example:**
 
-(with/IN)PP a pen  
+```python
+import nltk
+from nltk.chunk import RegexpParser
 
-#### IOB prefixes
+# Define chunking grammar
+grammar = r"""
+  NP: {<DT|PP\$>?<JJ>*<NN>}
+  PP: {<IN><NP>}
+  VP: {<VB.*><NP|PP|CLAUSE>+$}
+"""
 
-Each chunk has an open boundary and close boundary that delimit the word groups as a minimal non-recursive unit. This can be formally expressed by using IOB prefixes: B-CHUNK for the first word of the chunk and I-CHUNK for each other word in the chunk. Here is an example of the file format:
+# Create parser
+cp = RegexpParser(grammar)
+```
 
-|Tokens|POS|Chunk Tags|
-|---|---|---|
-|He |PRP|B-NP|
-|Ate|VBD|B-VP|
-|An |DT |B-NP|
-|Apple|NN|I-NP|
-|To |TO |B-VP |
-|Satiate|VB |I-VP|
-|His|PRP$|B-NP|
-|Hunger|NN |I-NP|
+#### **Processing Steps:**
+
+1. Tokenize text into words
+2. Apply POS tagging
+3. Apply chunking patterns
+4. Extract identified chunks
+
+---
+
+#### 7. Evaluation Metrics
+
+#### **Precision and Recall**
+
+- **Precision**: Correctly identified chunks / Total identified chunks
+- **Recall**: Correctly identified chunks / Total actual chunks
+- **F-measure**: Harmonic mean of precision and recall
+
+#### **Exact Match**
+
+Chunk boundaries must match exactly with gold standard.
+
+---
+
+#### 8. Applications of Chunking
+
+#### **Information Extraction**
+
+- Extract named entities and relationships
+- Identify key phrases from documents
+- Parse product descriptions and reviews
+
+#### **Question Answering**
+
+- Identify question type from chunk patterns
+- Extract answer candidates from text
+- Match question chunks with document chunks
+
+#### **Text Summarization**
+
+- Identify important noun phrases
+- Preserve meaningful chunk boundaries
+- Maintain readability in summaries
+
+---
+
+#### 9. Challenges in Chunking
+
+#### **Ambiguous Attachments**
+
+- "I saw the man with the telescope"
+- PP "with the telescope" can attach to verb or noun
+
+#### **Coordination**
+
+- "fast and reliable cars"
+- Handling coordinated adjectives within chunks
+
+#### **Nested Structures**
+
+- "The president of the United States"
+- Nested noun phrases within larger phrases
+
+---
+
+#### 10. Advanced Techniques
+
+#### **Conditional Random Fields (CRFs)**
+
+- Model dependencies between adjacent chunk labels
+- Better handling of sequence information
+- Higher accuracy than simple classification
+
+#### **Neural Chunking**
+
+- Use of RNNs and transformers
+- End-to-end learning from raw text
+- State-of-the-art performance on benchmark datasets
