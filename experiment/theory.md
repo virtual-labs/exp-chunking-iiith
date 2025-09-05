@@ -12,15 +12,15 @@ Chunking involves dividing text into syntactically related groups of words calle
 
 **After POS Tagging:**
 
-```
+<pre>
 The/DT quick/JJ brown/JJ fox/NN jumps/VBZ over/IN the/DT lazy/JJ dog/NN
-```
+</pre>
 
 **After Chunking:**
 
-```
+<pre>
 [NP The/DT quick/JJ brown/JJ fox/NN] [VP jumps/VBZ] [PP over/IN] [NP the/DT lazy/JJ dog/NN]
-```
+</pre>
 
 ---
 
@@ -71,9 +71,7 @@ Phrases beginning with prepositions:
 
 Uses hand-crafted patterns to identify chunks:
 
-```
-NP Pattern: {<DT>?<JJ>*<NN>}
-```
+`NP Pattern: {<DT>?<JJ>*<NN>}`
 
 This pattern matches: Optional determiner + Any number of adjectives + Noun
 
@@ -103,11 +101,11 @@ Chunking uses IOB (Inside-Outside-Begin) notation:
 
 #### Example IOB Tagging:
 
-```
+<pre>
 Word:    The    quick   brown   fox    jumps   over
 POS:     DT     JJ      JJ      NN     VBZ     IN
 Chunk:   B-NP   I-NP    I-NP    I-NP   O       O
-```
+</pre>
 
 ---
 
@@ -115,20 +113,20 @@ Chunk:   B-NP   I-NP    I-NP    I-NP   O       O
 
 #### **Basic Pattern Example:**
 
-```python
+<pre>
 import nltk
 from nltk.chunk import RegexpParser
 
 # Define chunking grammar
-grammar = r"""
+grammar = '''
   NP: {<DT|PP\$>?<JJ>*<NN>}
   PP: {<IN><NP>}
   VP: {<VB.*><NP|PP|CLAUSE>+$}
-"""
+'''
 
 # Create parser
 cp = RegexpParser(grammar)
-```
+</pre>
 
 #### **Processing Steps:**
 

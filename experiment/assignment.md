@@ -23,8 +23,10 @@ Assume standard POS tags: DT (determiner), JJ (adjective), NN (noun), VBZ (verb)
 
 **4.** Analyze the ambiguity in the following sentences and explain different possible chunking interpretations:
 
+<pre>
     Sentence 1: "I bought the book on machine learning"
     Sentence 2: "The student with the laptop studies programming"
+</pre>
 
 For each sentence, provide two different chunking analyses and explain which interpretation is more likely and why.
 
@@ -32,10 +34,12 @@ For each sentence, provide two different chunking analyses and explain which int
 
 **Target patterns:**
 
-- Company names: "Apple Inc.", "Microsoft Corporation"
-- Time expressions: "last Monday", "next week", "3 PM"
-- Location phrases: "in New York", "at the university"
+<pre>
+Company names: "Apple Inc.", "Microsoft Corporation"
+Time expressions: "last Monday", "next week", "3 PM"
+Location phrases: "in New York", "at the university"
+</pre>
 
-A. Write regular expression patterns for each type
-B. Test your patterns on sample sentences
-C. Identify any limitations or edge cases in your patterns
+- Write regular expression patterns for each type
+- Test your patterns on sample sentences
+- Identify any limitations or edge cases in your patterns
