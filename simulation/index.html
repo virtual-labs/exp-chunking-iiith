@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="js/modernizr-1.5.min.js" type="text/javascript"></script>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/tabs.js" type="text/javascript"></script>
+  </head>
+
+  <body class="index" id="page-top">
+    <div id="top">
+      <div id="content">
+        <!-- =================================================================================================================================== -->
+        <div
+          class="container-fluid"
+          style="margin-left: 35px; margin-right: 35px"
+        >
+          <div class="col-md-10 lab-list-col-10">
+            <!-- Instructions Panel -->
+            <div class="instructions-panel collapsed">
+              <div class="instructions-header" onclick="toggleInstructions()">
+                <h3>Instructions</h3>
+                <span class="arrow-icon">▼</span>
+              </div>
+              <div
+                class="instructions-content collapsed"
+                id="instructions-content"
+              >
+                <ul class="instructions-list">
+                  <li>
+                    Select a language (English or Hindi) from the Language
+                    Selection dropdown.
+                  </li>
+                  <li>
+                    Choose a sentence from the Sentence Selection dropdown that
+                    appears.
+                  </li>
+                  <li>
+                    Click on each word in the displayed sentence to select it.
+                  </li>
+                  <li>
+                    For each selected word, choose the appropriate chunk type
+                    (NP, VP, etc.) from the dropdown that appears.
+                  </li>
+                  <li>
+                    Use the "Get Answer" button if you need to see the correct
+                    chunking for reference.
+                  </li>
+                  <li>
+                    Click "Submit" to check your chunking answers when you're
+                    done.
+                  </li>
+                  <li>
+                    Use "Try Another Sentence" to reset and practice with a
+                    different sentence.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--edit -->
+            <div class="simulation-flex-container simulation-2col-grid">
+              <div class="sim-col1">
+                <div class="simulation-step" id="step-language">
+                  <h3 class="step-heading">Language Selection</h3>
+                  <div class="explanation">
+                    Select the language for chunking analysis
+                  </div>
+                  <select
+                    name="lang_opt"
+                    id="lang_opt"
+                    autocomplete="off"
+                    onchange="selectLang()"
+                  >
+                    <option value="0" selected>---Select Language---</option>
+                    <option value="1">English</option>
+                    <option value="2">Hindi</option>
+                  </select>
+                </div>
+
+                <div
+                  class="simulation-step"
+                  id="step-sentence"
+                  style="display: none"
+                >
+                  <h3 class="step-heading">Sentence Selection</h3>
+                  <div class="explanation">
+                    Choose a sentence to analyze for chunking
+                  </div>
+                  <select
+                    name="sentence_opt"
+                    id="sentence_opt"
+                    onchange="selectSentence()"
+                  >
+                    <option value="-1" selected>---Select a sentence---</option>
+                  </select>
+                </div>
+
+                <div
+                  class="simulation-step"
+                  id="step-reset"
+                  style="display: none"
+                >
+                  <div class="explanation">
+                    Start over with a different sentence or language
+                  </div>
+                  <button
+                    id="reset-simulation"
+                    class="sim-button"
+                    onclick="resetSimulation()"
+                  >
+                    Try Another Sentence
+                  </button>
+                </div>
+
+                <div
+                  id="step-controls-container"
+                  style="text-align: center"
+                ></div>
+              </div>
+
+              <div class="sim-col2">
+                <div id="result-panel">
+                  <h3 class="result-heading">Result</h3>
+                  <div id="result-content">
+                    <div id="tableContainer">
+                      <div id="display"></div>
+                    </div>
+                  </div>
+                  <div
+                    class="simulation-step"
+                    id="step-submit"
+                    style="
+                      display: none;
+                      margin-top: 1em;
+                      background: transparent;
+                      box-shadow: none;
+                      border: none;
+                      padding: 0;
+                    "
+                  >
+                    <div class="explanation" style="margin-bottom: 1em">
+                      Submit your chunking answers for evaluation
+                    </div>
+                    <div
+                      id="button-container"
+                      style="
+                        display: flex;
+                        gap: 1em;
+                        justify-content: center;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                        min-width: 300px;
+                      "
+                    >
+                      <button
+                        type="button"
+                        onclick="checkAnswer()"
+                        class="answer-button"
+                      >
+                        Submit
+                      </button>
+                      <div id="answer-button-container"></div>
+                    </div>
+                    <div
+                      id="see_soln"
+                      style="margin-top: 1em; text-align: center"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  id="reset-container"
+                  style="text-align: center; display: none"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- =================================================================================================================================== -->
+      </div>
+      <!-- content div -->
+    </div>
+    <!-- top div -->
+
+    <script src="js/custom.js"></script>
+    <script src="js/mobile-detection.js"></script>
+    <script src="js/main.js"></script>
+  <script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+</html>
